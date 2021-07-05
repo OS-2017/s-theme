@@ -1,0 +1,164 @@
+
+
+//Right Rail Blocks
+//========================
+
+.sideblock {
+  margin-bottom: $gutters;
+  border: 1px solid $black;
+  border-color: $lighter-gray;   
+  .block-title {
+    font-size: 1em;
+    margin: 0;
+    padding: 0.75em 1em;;
+    background-color: $lighter-gray; 
+    color: $base-accent-color;
+    a {
+      color: $base-accent-color; 
+      text-decoration: none;      
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: underline;
+        }
+    }//a
+  }//block-title
+    
+  .block-content {
+    padding: 1em;
+  }
+}//sideblock
+
+.region--sidebar-second {
+	 a {
+     color: $blue; 
+     text-decoration: underline;      
+       &:hover,
+       &:active,
+       &:focus {
+          text-decoration: none;
+          color: $red-dark;
+          }
+        }
+        	
+	//Banner Block 
+	.rr-banner-block {
+		img{
+      width:100%;
+    	margin-bottom: 9px;
+    }
+ 	}
+ 	
+	//Header Box Block
+	.rr-headerbox-block {
+		margin-bottom: $gutters;
+		  h2 {
+		    display: block;
+		    font-size: 1.4rem;
+		    font-weight: bold;
+		    line-height:1.6;
+		    background-color: $lighter-gray;
+		    margin: 0;
+		    padding: 7px 15px;
+		    color: $blue-gray;
+		    text-decoration: none;
+		  }
+		  .field--name-body {
+		     padding: 10px 15px;
+		     border: 1px solid $lighter-gray;
+		     ul{
+		       list-style-type: none;
+		       margin: 0 0 1.5em 0;
+		       li{
+		         padding: 0.25em;
+		         text-indent: -1em;
+             margin-left: 10px;
+		         &:before {
+		           content: "\0BB \020";
+		        }
+		      }
+		    }//ul
+		  }//body	
+ 	}
+ 	
+ 	//Color BG Block
+	.rr-solidbox-block {
+		 background-color: $lighter-gray;
+		 margin-bottom: $gutters;
+	
+	  	h2 {
+		    display: block;
+		    font-size: 1.5rem;
+		    font-weight: bold;
+		    margin:0;
+		    padding: 15px 15px 0;
+		    color: $red-dark;
+		    text-decoration: none;
+		  }
+		  .field--name-body {
+		    padding: 10px 15px;
+		    border: 1px solid $lighter-gray;
+		    ul{
+		      list-style-type: none;
+		      margin: 0 0 1.5em 0;
+		      li{
+		        padding: 0.25em;
+		        text-indent: -1em;
+            margin-left: 10px;
+		        &:before {
+		          content: "\0BB \020";
+		        }
+		      }
+		    }//ul
+		  }//body	
+		}
+}
+
+//leadership RR view blocks 
+//===========================
+
+
+.rr-solidbox-block{
+  .view-content {
+    padding: 15px 15px 20px;
+    .views-row {
+      margin-bottom: 7px;
+    }
+  }
+}
+
+
+//Underage drinking RR blocks
+
+#block-talktheyhearyourrfeaturedresources,
+#block-talktheyhearyourrtakeaction,
+.media-list{
+  p.left {
+    clear: both;
+    a {
+      vertical-align: top;
+    }
+    img.left {
+      margin-right: 10px;
+      margin-bottom: 10px;
+      float: left;
+    }//img
+  }//p.left
+}
+
+.region-sidebar-second{
+  .button, .btn{
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+}
+
+.view-language-toggle {
+    margin-bottom: 10px;
+}
+
+
+
+

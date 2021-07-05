@@ -1,0 +1,75 @@
+//images
+@include breakpoint ($break-tablet-portrait){
+  img.right {
+      margin: 0 0 15px 15px;
+      float: right;
+  }
+}
+//summary styles
+section.summary {
+    margin-bottom: 20px;
+    color: $black;
+}
+
+//Grants details
+
+.node--type-rfa.node--view-mode-full{
+  .field__item{
+    margin-top: 14px;
+  }
+  .field--name-field-announcement-state {
+    border-bottom: 1px black solid;
+    width: 100%;
+    display: block;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    font-style: italic;
+  }
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 10px 0;
+    legend{
+      border: 0;
+      padding: 0;
+      span.fieldset-legend {
+        font-weight: bold;
+        font-size: 112.5%;
+        color: $red;
+        padding-top: 15px;
+      }
+    }//legend  
+    fieldset {
+      //margin-left: 15px;
+      legend{
+        margin-bottom: 0;
+        span.fieldset-legend {
+        font-size: 105%;
+        color: $black;
+      }
+     }//legend  
+   }//inner fieldset 
+  }//fieldset
+} 
+
+//Find Treament page - two column layout
+//.find-tretment added in the template
+
+.find-treatment{
+  @include breakpoint ($break-tablet-portrait){
+    .left {
+        width: 48%;
+        float: left;
+        margin-left: 0;
+        margin-right: 2%;
+    }
+  
+   .right {
+        width: 48%;
+        float: left;
+        margin-right: 0;
+        margin-left: 0;
+  
+    }
+  }//breakpoint
+}//.find-treatment

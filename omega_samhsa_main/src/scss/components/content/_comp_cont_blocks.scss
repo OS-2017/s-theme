@@ -1,0 +1,229 @@
+// Landing pages blocks in two column layout.
+// Block groups for landing pages.
+//======================================
+.cr-landing-block {
+  width: 100%;
+  margin-bottom: 15px;
+  background-color: $white;
+  .samhsa-block-title h2 {
+     margin: 0;
+     font-size: 1.5rem;
+     font-weight: bold;
+     background-color: $teal;
+     padding: 7px 15px;
+     color: $white;
+     a {
+      display: block;
+      color: $white;
+      text-decoration: none;
+      padding: 0;
+      &:hover {
+        text-decoration: underline;
+      }
+      span.ext {
+        display: none;
+      }
+    }
+  }
+  .field--name-body {
+    padding: 10px 15px;
+    border: 1px solid $teal;
+    ul {
+      list-style-type: none;
+      margin: 0 0 1.5em 0.25em;
+      li {
+        padding: 0.25em 1em;
+        text-indent: -1em;
+        margin-left: 10px;
+        &:before {
+          content: "\0BB \020";
+        }
+      }
+    }
+  }
+}
+
+// Home blocks - get help.
+//==================================
+.home-block {
+  h2 {
+    font-size: 28px;
+  }
+  h2:after {
+    position: absolute;
+    left: 0;
+    width: 80px;
+    content: "";
+    border-bottom: 4px solid $red;
+    bottom: -11px;
+  }
+  &.get-help {
+    .samhsa-block-title {
+
+     }
+    p.helpline-phone a {
+      color: $blue-gray;
+      font-size: 17px;
+      font-weight: bold;
+      text-decoration: none;
+     }
+    ul {
+      list-style: none;
+      margin: 0;
+      @include breakpoint ($break-tablet-portrait) {
+        display: flex;
+      }
+      li {
+        border-bottom: 1px solid $light-gray;
+        @include breakpoint ($break-tablet-portrait) {
+          width:33%;
+          border-right: 1px solid $light-gray;
+          margin-right: 20px;
+          padding-right: 10px;
+          border-bottom: none;
+          h3 {
+            margin-top: 15px;
+            font-weight: normal;
+          }
+        }
+        &:last-child {
+          border: none;
+        }
+        h3 {
+          a {
+            font-size: 1.8rem;
+            font-weigth: 400;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// View blocks - newsroom blocks styles.
+//=========================================
+.cr-landing-block.landing-view-block {
+  border: 1px solid $teal;
+  .view-content {
+    padding: 5px 15px;
+  }
+  .views-field-field-release-date,
+  p.news-date {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .view-footer {
+    margin: 0 0 15px 15px;
+    clear: both;
+  }
+}
+
+// EBP Featured resources view block.
+//========================================
+#block-views-block-ebrp-featured-resources-block-1 {
+  .views-col.col-1 {
+    padding-right:7px;
+  }
+    .views-col.col-2 {
+    padding-left:7px;
+  }
+}
+
+// Home blocks.
+// H2 titles for "home-block" class.
+.home-block {
+  h2{
+   position: relative;
+   &:after {
+     position: absolute;
+     left: 0;
+     width: 80px;
+     content: "";
+     border-bottom: 4px solid $red;
+     bottom: -11px;
+    }
+  }
+}
+.two-col-layout {
+  .view-content {
+    column-count: 2;
+  }
+  @include breakpoint ($break-tablet-portrait) {
+    .views-row {
+      margin-right: 2%;
+    }
+  }
+}
+
+// Offices and centers block styles.
+#block-officesandcentershomepageblock {
+  margin-bottom: 30px;
+    ul.centers-offices-items {
+    margin: 0 2% 0 0;
+    list-style: none;
+    float: left;
+    @include breakpoint ($break-tablet-portrait) {
+      width: 48%;
+    }
+    h3.centers-offices-item-title {
+      margin: 1em 0 .5em;
+      font-weight: normal;
+      a {
+        text-decoration: none;
+      }
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+
+// SAMHSA at Glance home block.
+#block-samhsaataglanceblock {
+  ul.glance-items {
+    margin: 20px 0 0 0;
+    list-style: none;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    li.glance-item {
+      float: left;
+      margin: 0 1.75% 2% 0;
+      @include breakpoint ($break-tablet-landscape) {
+        width: 31.5%;
+      }
+      a {
+        text-decoration:none;
+      }
+      h3.glance-item-title {
+        margin: 0 0 .25em;
+        font-weight: normal;
+      }
+    }
+  }
+  .glance-item-image {
+    width: 130px;
+    float: left;
+    margin-right:10px;
+    @include breakpoint ($break-tablet-landscape) {
+
+    }
+  }
+  .glance-item-content {
+    p a {
+      color: $dark-gray;
+    }
+  }
+}
+
+// Language Toggle blocks.
+.block-views-blocklanguage-toggle--block-1 {
+  margin-bottom: 20px;
+}
+
+// Leadership and Regional Administrators Block.
+#block-views-block-leadership-regional-administrators {
+  clear: both;
+}

@@ -1,0 +1,17 @@
+// Font Awesome Icons
+//==========================================================================
+
+// Create the font family
+//----------------------------------------------
+@font-face {
+  font-family: 'font-awesome';
+  src:  url('../../fonts/google/font-awesome/fontawesome-webfont.eot');
+  src:  url('../../fonts/google/font-awesome/fontawesome-webfont.eot') format('embedded-opentype'),
+    url('../../fonts/google/font-awesome/FontAwesome.otf') format('otf'),
+    url('../../fonts/google/font-awesome/fontawesome-webfont.ttf') format('truetype'),
+    url('../../fonts/google/font-awesome/fontawesome-webfont.woff') format('woff'),
+    url('../../fonts/google/font-awesome/fontawesome-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+

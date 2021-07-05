@@ -1,0 +1,12 @@
+#block-utilitymenu {
+  ul[data-region="header"].menu {
+    font-size: 14px;
+    li.menu-item {
+      a {
+        padding: 3px 10px;
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+  }
+}

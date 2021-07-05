@@ -1,0 +1,93 @@
+//Webforms styles
+span.red {
+    color: red;
+}
+
+.webform-submission-form {
+  .ui-datepicker-trigger {
+      position: relative;
+      top: -36px;
+      left: 138px;
+  }
+  select, 
+  .select2-container--default .select2-selection--single,
+  .select2-selection.select2-selection--single {
+      background-color: #fff;
+      border: 1px solid #CDCDCD;
+      border-radius: 0;
+      height: 32px;
+  }
+}
+@include breakpoint ($break-tablet-portrait){
+  .webform-submission-form{
+    input[type=email], 
+    input[type=password],  
+    input[type=text], 
+    input[type=url], 
+    select, 
+    .form-item-state,
+    .form-item-states,
+    textarea,
+    .form-textarea,
+    .form-type-textfield,
+    .webform-element-description {
+      width:350px;
+    }
+    #edit-event-date-date,
+    .form-text.required.hasDatepicker,
+    .form-text.hasDatepicker {
+      width: 128px;
+    }
+    .title-red > legend span.fieldset-legend{
+      font-size: 125%;
+        color:$red;
+      
+    }
+  }
+}
+
+//Grant reviewer application form style
+//=======================================
+hr.webform-horizontal-rule {
+    margin: 2em 0;
+    border-bottom: 2px solid $red-dark;
+}
+@include breakpoint ($break-tablet-portrait){
+  .webform-submission-application-for-peer-grant-revie-form{
+    .container-inline > label{
+      //clear: left;
+      float: left;
+      width: 220px;
+      margin-right: 7px;
+      text-align: right;
+      display: inline;
+      &:after {
+        content: "";
+      }
+    } 
+    input[type=email], 
+    input[type=password],  
+    input[type=text], 
+    input[type=url], 
+    select, 
+    .form-item-state,
+    .form-item-states,
+    .form-type-textfield{
+      width: 350px;
+      display: inline;
+    }
+    textarea,
+    .form-textarea {
+      width:80%;
+    } 
+    .webform-element--title-inline > label {
+    display: inline;
+    padding-right: 0;
+    }
+    div#edit-email--description,
+    .webform-element-description {
+    display: block;
+    width: 100%;
+    } 
+  }
+}

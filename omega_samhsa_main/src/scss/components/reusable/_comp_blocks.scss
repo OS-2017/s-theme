@@ -1,0 +1,16 @@
+//Change the display of items
+.display-block{
+  display: block;
+}
+.display-inline-block{
+  display: inline-block;
+}
+
+.media-block{
+  img{
+    @extend .img-left;
+  }
+  p{
+    @extend .p-clear;
+  }
+}

@@ -1,0 +1,128 @@
+/*** TS - Grant Reviewer Form Stylings related to latest design updates 3/10/20 ***/
+.alias-grants-review-grant-reviewer-application {
+    p, label, .description, .webform-element-description {font-size: 15px;}
+    label {
+        font-weight: normal;
+        color: black;
+    }
+    hr { border-bottom: 2px solid #999999 !important;}
+    fieldset {
+        border: none;
+        padding: 0;
+        margin-top: 3em;
+        margin-bottom: 1em;
+
+        legend {
+            font-size: 140%;
+            padding-bottom: 0px;
+            font-weight: bold;
+            color: #1f419a;
+        }
+
+        fieldset {
+            margin: 0;
+            legend {
+                padding-top: 1em;
+                font-size: 15px;
+                font-weight: bold;
+                color:black;
+                margin: 0;
+            }
+        }
+        .checkboxes--wrapper legend {
+            padding: 0;
+        }
+
+        .description, .webform-element-description {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .required-asterisk {
+        color: #f00000;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 15px;
+    }
+    .form-required:after {
+        width: 8px;
+        height: 8px;
+        background-size: 8px 8px;
+    }
+    input[type=text], input[type=email] {
+        width: 450px;
+        height: 30px;
+    }
+    .state-zip-wrapper {
+        margin: 0;
+        .fieldset-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 450px;
+
+            .form-item-state .form-select {
+                width: 235px;
+                height: 30px;
+            }
+        }
+        .form-item-zip-code {
+            label {text-align:left;}
+            text-align: right;
+            width: 50%;
+
+            input[type=text] {
+                width: 200px;
+                height: 30px;
+            }
+        }
+    }
+    .form-item-license label {
+        font-weight: bold;
+        margin-top: 1em;
+    }
+    #edit-race--wrapper legend {
+       padding-top: 1em;
+    }
+
+    textarea {
+        width: 100% !important;
+        height: 276px;
+    }
+
+    .form-submit {
+        margin: 0;
+        margin-right: 25px;
+        background: #1a6986;
+        border: none;
+        color:white;
+        width: 123px;
+        padding: 0px 10px;
+        text-transform: uppercase;
+        font-size: 16px;
+
+        &:hover {
+            border: none;
+        }
+    }
+    .form-reset {
+        margin: 0;
+        background: white;
+        color: #1a6986;
+        text-decoration: underline;
+        border: none;
+        padding: 0;
+
+        &:hover {
+            color: #1a6986;
+            border: none;
+            background: none;
+            font-weight: bold;
+        }
+    }
+
+    #edit-actions, #edit-reset {
+        display: inline;
+    }
+}

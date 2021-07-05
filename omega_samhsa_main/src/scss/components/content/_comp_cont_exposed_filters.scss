@@ -1,0 +1,46 @@
+.block-views-blockebp-all-resources-block-1{
+  .accordion-toggle {
+    position: relative;
+    display: block;
+    padding: 10px;
+    font-size: 1.3em;
+    font-weight: 300;
+    border: 1px solid $teal;
+    background: $teal;
+    
+  }
+  .view-header {
+    display: block;
+    margin-bottom: 15px;
+    a{
+      text-decoration: none;
+      color: $white;
+    }
+    @include breakpoint ($break-mobile-landscape){
+      display: none;
+    } 
+  }
+  .accordion-toggle.open {
+    background: #666;
+    //color: #fff;
+  }
+  .accordion-toggle:hover {
+    background: #165972;
+  }
+  .accordion-toggle span.toggle-icon {
+    position: absolute;
+    top: 4px;
+    right: 15px;
+    font-size: 1.5em;
+  }
+  
+  .view-filters {
+    display: none;
+    overflow: auto;
+    @include breakpoint ($break-mobile-landscape){
+      display: block;
+    } 
+  }
+}//block-views-blockebp-all-resources-block-1
+ 
+

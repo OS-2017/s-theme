@@ -1,0 +1,126 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A css-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   Javascript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+{%
+  set classes = [
+    'view',
+    'view-' ~ id|clean_class,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+{% set MDDO30 = view.field.field_mddo_30.original_value %}
+{% set MDDO100 = view.field.field_mddo_100.original_value %}
+{% set MDDO275 = view.field.field_mddo_275.original_value %}
+{% set NP30 = view.field.field_np_30.original_value %}
+{% set NP100 = view.field.field_np_100.original_value %}
+{% set NP275 = view.field.field_np_275.original_value %}
+{% set PA30 = view.field.field_pa_30.original_value %}
+{% set PA100 = view.field.field_pa_100.original_value %}
+{% set PA275 = view.field.field_pa_275.original_value %}
+{% set CNM30 = view.field.field_cnm_30.original_value %}
+{% set CNM100 = view.field.field_cnm_100.original_value %}
+{% set CNM275 = view.field.field_cnm_275.original_value %}
+{% set CRNA30 = view.field.field_crna_30.original_value %}
+{% set CRNA100 = view.field.field_crna_100.original_value %}
+{% set CRNA275 = view.field.field_crna_275.original_value %}
+{% set CNS30 = view.field.field_cns_30.original_value %}
+{% set CNS100 = view.field.field_cns_100.original_value %}
+{% set CNS275 = view.field.field_cns_275.original_value %}
+{% set Total30 = MDDO30+NP30+PA30+CNS30+CRNA30+CNM30 %}
+{% set Total100 = MDDO100+NP100+PA100+CNS100+CRNA100+CNM100 %}
+{% set Total275 = MDDO275+NP275+PA275+CNS275+CRNA275+CNM275 %}
+{% set TotalMDDO = MDDO30+MDDO100+MDDO275 %}
+{% set TotalNP = NP30+NP100+NP275 %}
+{% set TotalPA = PA30+PA100+PA275 %}
+{% set TotalCNS = CNS30+CNS100+CNS275 %}
+{% set TotalCRNA = CRNA30+CRNA100+CRNA275 %}
+{% set TotalCNM = CNM30+CNM100+CNM275 %}
+{% set GrandTotal = Total30+Total100+Total275 %}
+
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {{ title_suffix }}
+  {% if header %}
+    <div class="view-header">
+      {{ header }}
+    </div>
+  {% endif %}
+<h1> National Waiver Totals </h1>
+<div class ="view-bup-data-waiver">
+
+<table class="bup-national-table">
+  <tr>
+    <th>Up to 30 <br>Patients</th>
+      <td class="bup-totals">{{ Total30|number_format }} </td>
+      <td class="bup-counts">{{ MDDO30|number_format }} MD/DO</td>
+      <td class="bup-counts">{{ NP30|number_format }} APRN/NP</td>
+      <td class="bup-counts">{{ PA30|number_format }} PA</td>
+      <td class="bup-counts">{{ CNS30|number_format }} CNS</td>
+      <td class="bup-counts">{{ CRNA30|number_format }}CRNA</td>
+      <td class="bup-counts">{{ CNM30|number_format }} CNM</td>
+  </tr>
+  <tr>
+    <th>Up to 100 <br>Patients</th>
+      <td class="bup-totals">{{ Total100|number_format }} </td>
+      <td class="bup-counts">{{ MDDO100|number_format }} MD/DO</td>
+      <td class="bup-counts">{{ NP100|number_format }} APRN/NP</td>
+      <td class="bup-counts">{{ PA100|number_format }} PA</td>
+      <td class="bup-counts">{{ CNS100|number_format }} CNS</td>
+      <td class="bup-counts">{{ CRNA100|number_format }} CRNA</td>
+      <td class="bup-counts">{{ CNM100|number_format }} CNM</td>
+  </tr>
+  <tr>
+    <th>Up to 275 <br>Patients</th>
+      <td class="bup-totals">{{ Total275|number_format }}</td>
+      <td class="bup-counts">{{ MDDO275|number_format }} MD/DO</td>
+      <td class="bup-counts">{{ NP275|number_format }} APRN/NP</td>
+      <td class="bup-counts">{{ PA275|number_format }} PA</td>
+  </tr>
+  <tr>
+    <th>Totals</th>
+      <td class="bup-grand-totals">{{ GrandTotal|number_format }} </td>
+      <td class="bup-grand-totals">{{ TotalMDDO|number_format }} MD/DO </td>
+      <td class="bup-grand-totals">{{ TotalNP|number_format }} APRN/NP </td>
+      <td class="bup-grand-totals">{{ TotalPA|number_format}} PA </td>
+      <td class="bup-grand-totals">{{ TotalCNS|number_format}} CNS </td>
+      <td class="bup-grand-totals">{{ TotalCRNA|number_format}} CRNA </td>
+      <td class="bup-grand-totals">{{ TotalCNM|number_format}} CNM </td>
+  </tr>
+</table>
+</div>
+</div>

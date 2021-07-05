@@ -1,0 +1,200 @@
+{#
+/**
+ * This is a copy of the block template from the Omega theme
+ * it simply allows for block titles to contain links
+ * without this template, links are rendered as text rather than being a link
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+
+{{ attach_library('samhsa_mindbreeze/header') }}
+{{ attach_library('samhsa_mindbreeze/mindbreeze_searchresults') }}
+
+<div{{ attributes.addClass(classes) }}>
+  {# Label. If not displayed, we still provide it for screen readers. #}
+  {% if not configuration.label_display %}
+    {% set title_attributes = title_attributes.addClass('visually-hidden') %}
+  {% endif %}
+  {{ title_prefix }}
+  <h2{{ title_attributes.setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
+  {{ title_suffix }}
+
+  <div{{ content_attributes.addClass('block-content') }}>
+    {% block content %}
+      {% verbatim %}
+
+      <div class="mb-container">
+
+		<div data-template="view" data-count="5" data-queryspelling-upto-results="50">
+  			<div class="container mb-role" role="main" id="main" data-shortcut="alt+2" data-aria-describedby="results-description" data-track-activedescendant>
+    			<script type="text/x-mustache-template" data-tag-name="span"
+           			data-id="results-description" data-class-name="mb-role"
+            		data-attr-role="tooltip" data-attr-aria-hidden="true">
+      					{{i18n.editor_result_title}} (Alt+2)
+    			</script>
+
+    			<div data-template="alert"></div>
+    			<div class="mb-stack" data-template="stack" data-model="stack">
+      				<div class="mb-stack-title" aria-live="assertive">
+        				<script type="text/x-mustache-template" data-attr-role="status"
+                			data-attr-class="{{^estimated_count?}}hide{{/estimated_count?}}"
+                			data-attr-tabindex="-1">
+          						{{^status_messages.no_results?}}
+          					<h2>
+          						{{#estimated_count?}}{{estimated_count}}
+            					{{i18n.editor_result_title}}{{/estimated_count?}}
+            					<button class="btn hidden-when-mb-stack-has-child btn-export" name="export" data-action-name="exportResults">
+            						{{i18n.export}}
+            					</button>
+          					</h2>
+
+          					{{/status_messages.no_results?}}
+        				</script>
+      				</div>
+
+      			<div class="mb-stack-content">
+        			<div data-template="searchinfo"></div>
+        			<div id="snippet-target"></div>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+	{% endverbatim %}
+
+<div data-template="view" data-count="10"
+     data-constraint="collection:{{ gfacet }}" class="">
+  <div class="mb-component-container container">
+
+    <form role="search" data-template="searchform" class="mb-center"><input
+        aria-label="search" data-template="suggest" data-property="title"
+        data-grouped="true" data-source-id-pattern="document_property|tabs"
+        data-initial-source-id-pattern="recent_query" class="mb-query"
+        name="query" placeholder="Search" type="search"></form>
+      <div class="row-fluid">
+        <div class="span3">
+            <div data-template="sortswitch" class="pull-left">
+
+	{% verbatim %}
+
+            <script type="text/x-mustache-template" aria-hidden="true">
+              {{#orderable?}}
+              <h2>{{{i18n.client_toolbar_sortingalgorithm_label}}}</h2>
+
+                <div class="sortBy">
+                  <select data-bind="orderby" data-action-object="{&quot;changeOrderBy&quot;:{}}" data-event-mask="change" aria-label="Sort by">
+                      <option {{#isSelected?}}selected{{/isSelected?}} value="mes:relevance">Relevance</option>
+                      <option {{#isSelected?}}selected{{/isSelected?}} value="mes:date">Date</option>
+                  </select>
+                {{#order_direction_available?}}
+                <fieldset class="pull-left sort">
+                  <legend class="mb-acc">{{i18n.order_direction}}</legend>
+                  <label class="mb-hidden-radio" title="{{i18n.sort_ascending}}">
+                    <input type="radio" name="sortswitch" value="ASCENDING"
+                           class="action" data-bind="resultset.order_direction"
+                           data-name="order_direction" data-value="ASCENDING">
+                    <span>
+                <i class="icon-sort-by-alphabet"></i>
+                <span class="mb-acc">{{i18n.sort_ascending}}</span>
+              </span>
+                  </label>
+                  <label class="mb-hidden-radio" title="{{i18n.sort_descending}}">
+                    <input type="radio" name="sortswitch" value="DESCENDING"
+                           class="action" data-bind="resultset.order_direction"
+                           data-name="order_direction" data-value="DESCENDING">
+                    <span>
+                <i class="icon-sort-by-alphabet-alt"></i>
+                <span class="mb-acc">{{i18n.sort_descending}}</span>
+              </span>
+                  </label>
+                </fieldset>
+              </div>
+                {{/order_direction_available?}}
+              </div>
+              {{/orderable?}}
+            </script>
+          </div>
+
+        </div>
+          <p>&nbsp;</p>
+
+        <div class="span12 results">
+            <div data-template="results" class="" data-appendonscroll="false">
+              <script type="text/x-mustache-template" data-attr-role="group"
+                      data-attr-aria-labelledby="result_{{id}}"
+                      data-class-name="media mb-clickable-phone"
+                      data-attr-data-action-object="{ &quot;toggleOpen&quot;: { &quot;enabledSelector&quot;: &quot;.visible-phone&quot; }}"
+                      aria-hidden="true">
+                <span class="pull-left media-object" aria-hidden="true">
+            {{#actions.data[0].value.href?}}<a href="{{actions.data[0].value.href}}"
+                                           data-disabled-selector=".visible-phone"
+                                           tabindex="-1" target="_self">{{/actions.data[0].value.href?}}
+              {{{icon}}}
+            {{#actions.data[0].value.href?}}</a>{{/actions.data[0].value.href?}}
+          </span>
+                <div class="media-body">
+                  <h3 class="media-heading" id="result_{{id}}">
+                    {{#actions.data[0].value.href?}}<a
+                      href="{{actions.data[0].value.href}}"
+                      data-disabled-selector=".visible-phone" target="_self">{{/actions.data[0].value.href?}}
+                      {{{title}}}
+                      {{#actions.data[0].value.href?}}</a>{{/actions.data[0].value.href?}}
+                  </h3>
+                  <dl
+                    class="mb-metadata mb-comma-separated-values mb-horizontal mb-separated hidden-phone mb-visible-open mb-small">
+                    <dt class="mb-acc">{{i18n.date}}</dt>
+                    <dd>{{{mes:date}}}</dd>
+                    {{#mes:summary}}
+                    <dt>{{name}}</dt>
+                    {{#data}}
+                    <dd>{{#actions?}}<span class="mb-dropdown-toggle"><a
+                          data-action-object="{&quot;openMenu&quot;: {&quot;propertyId&quot;: &quot;{{property:id}}&quot;, &quot;position&quot;: {{data:position}} }}"
+                          class="nowrap">{{/actions?}}{{{html}}}{{#actions?}} <span
+                            class="caret"></span></a></span> {{/actions?}}</span>
+                    </dd>
+                    {{/data}}
+                    {{/mes:summary}}
+                  </dl>
+                  {{#content}}
+                  <p class="mb-content">{{{.}}}</p>
+                  {{/content}}
+                  <span class="clearfix"></span>
+                </div></script>
+            </div>
+
+          <span id="mindbreeze-pager">
+          	<div data-template="pages" class="mindbreeze_pager_desktop"></div>
+          </span>
+        </div>
+
+
+
+          <!-- <div data-template="filteredfacet" data-name="extension" class="" style="">
+              <div class="mb-edit-bar"><button class="btn edit"><i class="icon-pencil"></i></button>
+                  <button class="btn delete"><i class="icon-trash"></i></button>
+                  <span class="btn mb-drag-handle"><i class="icon-move"></i></span>
+              </div>
+              <script type="text/x-mustache-template" data-tag-name="span"><span class="{{#showAddAnd?}}mb-add-and-available{{/showAddAnd?}} mb-tooltip">{{{html}}}{{#showAddAnd?}} <a class="action mb-add-and"><i class="icon-plus-sign"></i></a>{{/showAddAnd?}}</span><span class="pull-right" title="{{count}}">{{#count?}}&nbsp;{{count}}{{/count?}}{{#excluded}}&ndash;{{/excluded}}</span></script>
+              -->
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+	{% endverbatim %}
+
+    {% endblock %}
+
+	</div>
+</div>
+
+
+
+
+

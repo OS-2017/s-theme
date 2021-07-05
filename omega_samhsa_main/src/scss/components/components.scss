@@ -1,0 +1,17 @@
+// PLEASE REMEMBER TO USE PROPER NAMING CONVENTIONS FOR FILES!!!
+// Partial should be named: _component_foldername_file-name.scss
+// For example: src/scss/component/header/_component_header_site-branding.scss
+
+// Layout: discrete, reusable UI elements.
+// Minor layout components - Blocks, menus, callouts
+//==========================================================================
+//==========================================================================
+
+@import "../config/*";
+
+@import "content/*.scss";
+@import "footer/*.scss";
+@import "header/*.scss";
+@import "prefaces/*.scss";
+@import "reusable/*.scss";
+@import "sidebars/*.scss";

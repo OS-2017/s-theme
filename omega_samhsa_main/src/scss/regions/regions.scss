@@ -1,0 +1,7 @@
+// PLEASE REMEMBER TO USE PROPER NAMING CONVENTIONS FOR FILES!!!
+// Partial should be named: _layout_foldername_file-name.scss
+// For example: src/scss/layout/header/_layout_header_site-branding.scss
+@import "../config/*.scss";
+@import "../config/*";
+
+@import "*.scss";

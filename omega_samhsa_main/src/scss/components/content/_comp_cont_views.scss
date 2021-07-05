@@ -1,0 +1,637 @@
+//Styles for Infographic View Page
+//===================================
+.view-infographic-view{
+  h4{
+    margin: 0.75em 0 0.75em;
+  }
+  .embed-code {
+    background-color: #EEDB9D;
+    padding: 10px;
+    font-size: 13px;
+    font-family: monospace;
+    color: black;
+    word-wrap: break-word;
+    h5{
+      margin: 0.5em 0 0.5em;
+      font-size: 1.4rem;
+    }
+  }//embed-code
+  .views-view-table{
+    @media only screen and (max-width: 624px){
+      display: block;
+    }
+    tbody, tr, td {
+      @media only screen and (max-width: 624px){
+        display: block;
+      }
+    }//tr, td
+  }//.views-view-table
+  .pager ul {
+    text-align: center;
+    a{
+      text-decoration: none;
+      &:active,
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+      }
+    }//a
+  }//pager ul
+}//view-infographic-view
+
+//colorbox caption styles
+#cboxTitle {
+  left: 0;
+  height: 38px;
+  color: #313131;
+  padding: 0 20px 10px 15px;
+  display: table-cell !important;
+  vertical-align: middle;
+  float: none !important;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+
+//In the NEWS view (page display) styles
+//====================================
+
+.view-in-the-news{
+  .views-field-field-featured-image{
+    max-width: 30%;
+    float: left;
+    clear: both;
+    margin-top:10px;
+  }
+  .text-fields-wrapper {
+    float: left;
+    max-width: 70%;
+    padding-left: 10px;
+    p{
+      margin: 0;
+      &.news-date {
+        font-weight: bold;
+      }
+    }//p
+  }//text-fields-wrapper
+}//view-in-the-news
+
+
+//Press Anouncement View
+//============================
+
+//exposed filters
+#views-exposed-form-news-page-1{
+  .form-item-field-release-date-value-max label {
+    color: transparent;
+  }
+  .form-item {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @include breakpoint ($break-mobile-landscape){
+    .form-item-body-value,
+    .form-item-field-release-date-value-min,
+    .form-item-field-release-date-value-max {
+      max-width: 28%;
+    }
+  }//breakpoint
+  @media only screen and (max-width: 624px){
+    .form-item-body-value{
+      width:100%;
+    }
+  }
+}
+
+//FEB Resources view - block display
+//======================================
+
+.fep-display{
+  .views-row {
+    border-bottom: 1px solid $medium-gray;
+    padding-bottom: 15px;
+  }
+  h3.field-content {
+    color: $red;
+  }
+  select{
+    line-height: 1.3;
+  }
+  .feb-program-info {
+    margin: 10px 0;
+    font-size: 1.3rem;
+  }
+  .services.clearfix{
+    font-size: 1.3rem;
+    @include breakpoint ($break-tablet-portrait){
+      .left {
+        float: left;
+        width: 50%;
+      }
+      .right {
+        float: left;
+        width: 50%;
+      }
+    }//breakpoint
+  }//services
+}//fep-display
+
+//GAIN TT - Trauma-Informed Response Trainer Listing
+//=================================================
+
+//Block display
+
+
+.view-gains-tt-list{
+  .view-filters {
+    select{
+      line-height: 1.3;
+    }
+    label{
+      display: block;
+    }
+  }//.view-filters
+  .views-row{
+    padding-bottom: 20px;
+  }
+}//.view-gains-tt-list
+
+//HPR resources view
+
+.view-hpr-resources{
+  select{
+    line-height: 1.3;
+  }
+  @include breakpoint ($break-mobile-landscape){
+    caption{
+      display: none;
+    }
+  }
+}
+
+//Gains court locators
+.block-views-blockgains-mhc-lists-block-1,
+.view-gains-mhc-lists-juvenile {
+  .views-row {
+    margin-bottom: 20px;
+  }
+}
+
+//Biographies view
+.view-leadership{
+  .views-row {
+    clear: both;
+  }
+  .views-field-field-bio-image{
+    img{
+      float: left;
+      margin-right: 15px;
+      margin-bottom: 15px;
+    }
+  }
+  .views-field-field-professional-title{
+    font-weight: bold;
+  }
+  &.view-display-id-block_bio{
+    .views-field.views-field-body-1 {
+      clear: both;
+      border-top: 1px solid $medium-gray;
+      padding-top: 20px;
+    }
+  }
+}
+
+//Biography node view styles
+//================================
+
+.node--type-biography {
+  .field--name-field-bio-image {
+    float: left;
+    margin: 0px 15px 15px 0px;
+  }
+  .field--name-field-professional-title {
+    font-weight: bold;
+    padding-top: 5px;
+  }
+  .field--name-body{
+    //border-top: 1px solid #000;
+    margin-top: 15px;
+    padding-top: 15px;
+    clear: both;
+  }
+}
+
+//Grants announcements Footer view block
+//=========================================
+.block-views-blockgrants-grants-footer-block{
+  .callout {
+    background: $medium-gray;
+    padding: 10px 15px;
+    margin: 15px 0px;
+    h2{
+      margin: .5em 0 .75em;
+    }
+  }
+  ul.app-materials ul {
+    margin-bottom: 0;
+  }
+}
+
+//Grants announcements details blocks
+//======================================
+
+.view-grants{
+  .view-icons-group{
+    background: $medium-gray;
+    padding: 10px 15px;
+    //position: absolute;
+    //top: 120px;
+    //width: 100%;
+    h4{
+      margin: 0 0 .75em;
+    }
+  }
+  select{
+    line-height: 1.3;
+  }
+  .form-item{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .form-actions{
+    margin-top:0;
+    margin-bottom: 20px;
+  }
+  td.is-active {
+    background-color: transparent;
+  }
+  .views-field-field-rfa-number-1 {
+    width: 90px;
+  }
+}//view-grants
+
+.view-fy-samhsa-grant-awards{
+  #view-field-award-number-table-column{
+    width: 120px;
+  }
+  td.is-active {
+    background-color: transparent;
+  }
+  .views-view-table caption {
+    font-weight: bold;
+  }
+  .views-exposed-form {
+    margin-bottom: 0;
+    .form-actions{
+      margin-top:0;
+      margin-bottom: 0;
+    }
+    .form-item{
+      margin-bottom: 0;
+    }
+  }
+}
+
+//PROGRAMS views
+//===============================
+.view-programs-and-campaigns,
+.view-public-messages{
+  .item-list .pc-list{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0;
+    list-style: none;
+    list-style-type: none;
+    li{
+      margin: 0 0 20px 0;
+    }
+    @include breakpoint ($break-mobile-landscape){
+      li{
+        width: 31.5%;
+        margin: 0 1.75% 2% 0;
+        float: left;
+      }//li
+    }//breakpoint
+  }
+  .views-field-title h3.field-content{
+    font-size: 18px;
+    line-height: 1.2;
+    margin: 10px 0 5px 0;
+    padding: 0;
+    font-weight: normal;
+    a{
+      text-decoration: none;
+    }
+  }
+  .form--inline .form-actions, .form-item {
+    margin-top: 0;
+    margin-bottom: 0;
+    @include breakpoint ($break-mobile-landscape){
+      clear: none;
+    }
+  }
+  @include breakpoint ($break-mobile-landscape){
+    .bef-exposed-form .form--inline > .form-item {
+      width: 40%;
+      margin-right: 0;
+    }
+  }
+}//view-programs-and-campaigns
+
+
+//NAC Meetings view
+
+.view-nac-meetings{
+  form {
+    margin: 0;
+  }
+
+  .bef-exposed-form {
+    position: relative;
+    .description {
+      font-size: 0.85em;
+      position: absolute;
+      top: 35px;
+    }
+    legend {
+      margin-bottom: 20px;
+    }
+  }//.bef-exposed-form
+  .views-table.views-view-table{
+    td.is-active {
+      background-color: transparent;
+    }
+  }// .views-table
+}//.view-nac-meetings
+
+//Homepage views
+//========================
+
+//Current Topics view
+
+.home-block{
+  .block-content {
+    margin-top: 35px;
+  }
+  ul.homepage-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0;
+    list-style: none;
+    list-style-type: none;
+    li {
+      width: 100%;
+      margin: 0 1.75% 2% 0;
+      float: left;
+      @include breakpoint ($break-tablet-landscape){
+        width: 31.5%;
+      }//breakpoint
+      .views-field.views-field-field-hp-thumbnail {
+        width: 130px;
+        height: 130px;
+        float: left;
+        margin-right: 10px;
+      }//thumb
+      h3.field-content {
+        margin: 0 0 7px 0;
+        //font-size: 16px;
+        font-weight: normal;
+        a{
+          text-decoration: none;
+        }
+      }//h3
+    }//li
+  }//ul
+}//home-block
+.current-topics{
+  .block-content {
+    background-color: $lighter-gray;
+    padding: 20px 5px 20px 20px;
+    margin-top: 35px;
+  }
+}
+a.link-button-style2{
+  display: inline-block;
+  background-color: $white;
+  border: 1px solid $teal;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: $teal;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 15px 20px;
+  text-decoration: none;
+  text-transform: capitalize;
+  text-align: center;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  line-height: 1.5;
+  &:hover{
+    text-decoration: none;
+    color: $dark-gray2;
+    border: 1px solid $dark-gray2;
+  }
+}
+
+//Bupe practitioners data tables.
+//====================================
+
+//National Waiver Totals view
+//------------------------------------
+.view-bupe-physician-count-national{
+  .bup-national-table{
+    tr {
+      background: transparent;
+      border-bottom: 1px solid $light-gray;
+      &:last-child {
+        border: none;
+        border-top: 1px solid #cdcdcd;
+      }
+      th{
+        /*width:15%;*/
+      }
+      .bup-totals,
+      .bup-grand-totals {
+        font-weight: bold;
+      }
+      th,td {
+        border: none;
+        padding:0.25em ;
+      }
+      td {
+        font-size: .9em;
+      }
+    }//tr
+  }//table
+}
+
+//Waiver Totals by State view
+//-------------------------------
+
+.block-views-blockbup-physician-count-national-table--block-1{
+  .view-header {
+    font-size: 15px;
+    color: $dark-gray2;
+    h2 {
+      background: $teal;
+      color: white;
+      font-size: 18px;
+      padding: 1em;
+      margin: 1em 0 0 0;
+    }//h2
+  }//view-header
+
+  #views-exposed-form-bup-physician-count-national-table--block-1{
+    a.chosen-single {
+      height: 45px;
+      display: flex;
+      align-items: center;
+
+      div {
+        top: 20%;
+      }
+    }//chose-single
+    input[type=submit]{
+      width: 123px;
+      height: 44px;
+      margin-left: 25px;
+      font-size: 1.1em;
+    }//input
+  }//views-exposed-form-bup-physician-count-national-table--block-1
+
+  .tablesaw caption {
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .bup-col-labels {
+    border: none;
+    margin: 0;
+    th{
+      border: none;
+      padding: 0;
+      font-size: 20px;
+    }
+    tr:nth-child(odd) {
+      background: transparent;
+      border-bottom:none;
+    }//tr
+  }//bup-col-labels
+  .waiver-table-wrapper {
+    background: $lighter-gray;
+    padding: 1em;
+    //exposed filters
+    .view-filters{
+      .views-exposed-form.bef-exposed-form{
+        label{
+          vertical-align: top;
+          display: inline-block;
+          margin-top: 5px;
+          margin-right: 20px;
+          color: $dark-gray2;
+        }
+        .form-actions {
+          clear: none;
+          margin-top: 0;
+          .button.js-form-submit.form-submit{
+            margin-top: 15px;
+          }
+        }
+      }
+    }//views-exposed-form
+    .chosen-search input[type="text"] {
+      display:none;
+    }
+    .chosen-container.chosen-container-single .chosen-single {
+      border: 2px solid $light-gray;
+      background-color: $white;
+      background: white;
+      height: 34px;
+    }
+    .chosen-results {
+      background-color: $white;
+    }
+  }
+  .inner-table-view-wrapper {
+    background-color: $white;
+    padding: 1.5em;
+    tbody tr{
+      background-color: transparent;
+      border-bottom: 1px solid $light-gray;
+      &:last-child {
+        border: none;
+      }
+    }//tr
+    .bup-col-labels tbody tr{
+      border-bottom: none;
+    }
+    .pager ul {
+      text-align: left;
+      li a{
+        text-decoration:none;
+      }
+    }
+    .views-table.views-view-table{
+      margin: 2em 0;
+
+      caption {
+        font-size: 18px;
+        color: $teal;
+        font-weight: bold;
+        text-align: left;
+      }
+      td{
+        border:none;
+        padding:0;
+      }
+      .bup-data-by-state-table {
+        margin: 0;
+        th{
+          width: 15%;
+          //padding: .25em .5em 0 0 ;
+          background-color: $white;
+          border: none;
+          color: $dark-gray2;
+        }
+        .bup-totals,
+        .bup-grand-totals{
+          font-weight: bold;
+          color: $dark-gray2;
+        }
+        .bup-totals {
+          display: inline-block;
+          width: 3em;
+        }
+        td{
+          border: none;
+          padding: 1em;
+          font-size: .8em;
+          &:nth-child(2){
+            width: 74%;
+          }
+          &:nth-child(3){
+            width: 15%;
+          }
+          &:nth-child(4){
+            width: 17%;
+          }
+
+          span {
+            margin-right: 1em;
+          }
+        }//td
+        tr {
+          &:last-child {
+            border-top: 1px solid $light-gray;
+          }
+        }//tr
+      }//.bup-data-by-state-table
+    }//views-table
+  }//.inner table wrapper
+}//waiver-table-wrapper
+//view-block

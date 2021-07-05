@@ -1,0 +1,28 @@
+omega_samhsa_main:
+  omega:
+    allow_clone_for_subtheme: true
+    allow_enable_disable: true
+    title: 'Default library for SAMHSA.'
+    description: 'Default Omega grandchild subtheme for SAMHSA websites.'
+#    scss: 
+#      style/css/omega_samhsa_grandchild.css: 'style/scss/omega_samhsa.scss'
+  version: VERSION
+  css:
+    base:
+      'https://use.fontawesome.com/releases/v5.0.6/css/all.css': { type: external }
+      css/base/base.css: {}
+    layout:
+      css/regions/regions.css: {}
+    component:
+      css/components/components.css: {}
+  js:
+    src/js/modernizr.custom.js: {}
+    src/js/jquery.dlmenu.js: {}
+    src/js/omega-samhsa-main-behaviors.js: {}
+    src/js/jquery.rwdImageMaps.js: {}
+
+  dependencies:
+#     - core/modernizr
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

@@ -1,0 +1,152 @@
+  {#  
+  {{ kpr(view.args.0) }} 
+  {{ kpr(view.result.0.node__field_rfa_award_amount_field_rfa_award_amount_value) }} 
+  devel_dump() 
+  #}
+  
+<br>   
+{% set D1 = view.result.0.node__field_rfa_award_amount_field_rfa_award_amount_value %}
+{% set D2 = view.result.1.node__field_rfa_award_amount_field_rfa_award_amount_value %}
+{% set D3 = view.result.2.node__field_rfa_award_amount_field_rfa_award_amount_value %}
+{% set Subtotal_of_Discretionary_Funding = D1 + D2 + D3 %}
+
+{% set ND1 = view.result.3.node__field_rfa_award_amount_field_rfa_award_amount_value %}
+{% set ND2 = view.result.4.node__field_rfa_award_amount_field_rfa_award_amount_value %}
+{% set ND3 = view.result.5.node__field_rfa_award_amount_field_rfa_award_amount_value %}
+{% set ND4 = view.result.6.node__field_rfa_award_amount_field_rfa_award_amount_value %}
+{% set Subtotal_of_Formula_Funding = ND1 + ND2 + ND3 + ND4 %}
+
+{% set Total_Mental_Health_Funds = D1 + ND2 + ND3 + ND4 %}
+{% set Total_Substance_Abuse_Funds = D2 + D3 + ND1 %}
+{% set Total_Funds = ND1 + ND2 + ND3 + ND4 + D1 + D2 + D3 %}
+
+{% set State = view.args.0 %}
+{% set Year = view.args.1 %}
+{% set View_URL = path('<front>') ~ '/grants-awards-by-state/' ~ State %}
+
+{#
+// Select and validate Year from args array (it changes from [1] to [2] on link click)
+foreach ($view->args as $elem) {
+	if (ctype_digit($elem) && ($elem > 2013) && ($elem < 2050)){ // Current data is 2014-2017 (~3.26.2018)
+		$Year = $elem;
+	}
+}
+// If no year present in args, redirect to 404
+if ($Year == null) {
+	drupal_not_found();
+	drupal_exit();
+}
+#}
+
+<div class="view view-display-id-page view-grants-awards-by-state">
+  <div class="view-header">
+    <p></p>
+    <center>
+      <h1>{{ State|full_state_from_abbrev }}<br> Summaries FY  {{ Year }}</h1> 
+      <p><a href="{{ View_URL }}/discretionary/{{ Year }}/details" id="anch_32">
+      This is a summary, click here for Discretionary Funds in Detail</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="{{ View_URL }}/non-discretionary/{{ Year }}/details" id="anch_32">
+      This is a summary, click here for Non-Discretionary Funds in Detail</a></p>
+    </center>
+  </div>
+</div>
+
+<div id="block-views-3b6099d72a7b373b7250b8a5fa9ed566" class="block block--views block--views-3b6099d72a7b373b7250b8a5fa9ed566">
+  <h2 class="block__title">Formula Funding</h2>
+  <div class="block__content">
+    <div class="view view-new-2014-grants-awards-by-state view-id-new_2014_grants_awards_by_state view-display-id-block_1 view-grants-awards-by-state view-dom-id-f80710b0f8fc9cdf7655297e419941e1">
+      <div class="view-content">
+        <table class="views-table cols-5">
+          <tbody>
+            <tr class="even">
+              <th class="views-field views-field-field-substance-abuse-prevention" scope="row">
+                Substance Abuse Prevention and Treatment Block Grant </th>
+              <td class="views-field views-field-field-substance-abuse-prevention">${{ ND1|number_format }}</td>
+            </tr>
+            <tr class="odd">
+              <th class="views-field views-field-field-community-mental-health-se" scope="row">
+                Community Mental Health Services Block Grant </th>
+              <td class="views-field views-field-field-community-mental-health-se">${{ ND2|number_format }}</td>
+            </tr>
+            <tr class="even">
+              <th class="views-field views-field-field-projects-for-assistance-in" scope="row">
+                Projects for Assistance in Transition from Homelessness (PATH) </th>
+              <td class="views-field views-field-field-projects-for-assistance-in">${{ ND3|number_format }}</td>
+            </tr>
+            <tr class="odd">
+              <th class="views-field views-field-field-protection-and-advocacy-fo" scope="row">
+                Protection and Advocacy for Individuals with Mental Illness (PAIMI) </th>
+              <td class="views-field views-field-field-protection-and-advocacy-fo">${{ ND4|number_format }}</td>
+            </tr>
+            <tr class="even">
+              <th class="views-field views-field-field-subtotal-of-formula-fundin" scope="row">
+                Subtotal of Formula Funding </th>
+              <td class="views-field views-field-field-subtotal-of-formula-fundin">${{ Subtotal_of_Formula_Funding|number_format }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="block-views-b58408796be92141a9b63e42718f7ba7" class="block block--views block--views-b58408796be92141a9b63e42718f7ba7">
+  <h2 class="block__title">Discretionary Funding</h2>
+  <div class="block__content">
+    <div class="view view-new-2014-grants-awards-by-state view-id-new_2014_grants_awards_by_state view-display-id-block_2 view-grants-awards-by-state view-dom-id-7637be994d8b52558f95473fb2826a73">
+      <div class="view-content">
+        <table class="views-table cols-4">
+          <tbody>
+            <tr class="even">
+              <th class="views-field views-field-field-mental-health" scope="row">
+                Mental Health </th>
+              <td class="views-field views-field-field-mental-health">${{ D1|number_format }}</td>
+            </tr>
+            <tr class="odd">
+              <th class="views-field views-field-field-sap" scope="row">
+                Substance Abuse Prevention </th>
+              <td class="views-field views-field-field-sap">${{ D2|number_format }}</td>
+            </tr>
+            <tr class="even">
+              <th class="views-field views-field-field-sat" scope="row">
+                Substance Abuse Treatment </th>
+              <td class="views-field views-field-field-sat">${{ D3|number_format }}</td>
+            </tr>
+            <tr class="odd">
+              <th class="views-field views-field-field-subtotal-of-discretionary-" scope="row">
+                Subtotal of Discretionary Funding </th>
+              <td class="views-field views-field-field-subtotal-of-discretionary-">${{ Subtotal_of_Discretionary_Funding|number_format }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="block-views-bf5e5990607033f250b34edb4f941d34" class="block block--views block--views-bf5e5990607033f250b34edb4f941d34">
+  <h2 class="block__title">Total Funding</h2>
+  <div class="block__content">
+    <div class="view view-new-2014-grants-awards-by-state view-id-new_2014_grants_awards_by_state view-display-id-block_3 view-grants-awards-by-state view-dom-id-3223d9f61c53ba577cb0fd3fa814bdeb">
+      <div class="view-content">
+        <table class="views-table cols-3">
+          <tbody>
+            <tr class="even">
+              <th class="views-field views-field-field-total-mental-health-funds" scope="row">
+                Total Mental Health Funds </th>
+              <td class="views-field views-field-field-total-mental-health-funds">${{ Total_Mental_Health_Funds|number_format }}</td>
+            </tr>
+            <tr class="odd">
+              <th class="views-field views-field-field-total-substance-abuse-fund" scope="row">
+                Total Substance Abuse Funds </th>
+              <td class="views-field views-field-field-total-substance-abuse-fund">${{ Total_Substance_Abuse_Funds|number_format }}</td>
+            </tr>
+            <tr class="even">
+              <th class="views-field views-field-field-total-funds" scope="row">
+                Total Funds </th>
+              <td class="views-field views-field-field-total-funds">${{ Total_Funds|number_format }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
